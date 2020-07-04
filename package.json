@@ -1,0 +1,11 @@
+{
+  "name": "@dipaktelangre/age-calculator",
+  "version": "1.0.0",
+  "description": "Calculate age from given date of birth ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Dipak Telangre",
+  "license": "ISC"
+}
