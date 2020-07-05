@@ -1,5 +1,3 @@
-const testMethod = () => {
-  console.log("Testjignm");
+export const sum = (a: number, b: number): number => {
+  return a + b;
 };
-
-testMethod();
