@@ -13,6 +13,19 @@
     "test": "jest --config jestconfig.json",
     "test:tdd": "jest --watch --config jestconfig.json"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm run build && npm run test"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "eslint --fix"
+    ],
+    "*.{ts,js,json}": [
+      "prettier --write"
+    ]
+  },
   "author": "Dipak Telangre",
   "license": "ISC",
   "devDependencies": {
@@ -30,5 +43,9 @@
     "ts-jest": "^26.1.1",
     "tslint": "^6.1.2",
     "typescript": "^3.9.6"
+  },
+  "dependencies": {
+    "husky": "^4.2.5",
+    "lint-staged": "^10.2.11"
   }
 }

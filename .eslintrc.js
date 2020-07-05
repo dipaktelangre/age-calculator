@@ -7,7 +7,7 @@ module.exports = {
   extends: ["plugin:@typescript-eslint/recommended", "prettier/@typescript-eslint", "plugin:prettier/recommended"],
   parserOptions: {
     ecmaVersion: 2020, // Allows for the parsing of modern ECMAScript features
-    project: "tsconfig.json",
+    project: "tsconfig.eslint.json",
     sourceType: "module", // Allows for the use of imports
   },
   plugins: ["@typescript-eslint", "@typescript-eslint/tslint", "import", "unused-imports"],
