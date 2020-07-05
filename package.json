@@ -1,6 +1,6 @@
 {
   "name": "@dipaktelangre/age-calculator",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Calculate age from given date of birth ",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
