@@ -1,5 +1,6 @@
 import moment from "moment";
-import { Age } from "./model";
+import { UnitOfAge, Age } from "./model";
+import { DateCalculator } from "./date-calculator";
 
 export class AgeCalculator {
   /**
@@ -10,27 +11,20 @@ export class AgeCalculator {
   static getAge(dob: Date): Age {
     if (!(dob instanceof Date)) throw new Error("Invalid date");
     if (moment(dob.toISOString()).isAfter(moment())) throw new Error("Future date not allowed");
-    return AgeCalculator.dateDifference(dob, new Date());
+    const dateCal = new DateCalculator();
+    return dateCal.dateDifference(dob, new Date());
   }
 
-  private static dateDifference(from: Date, to: Date): Age {
-    if (!(from instanceof Date) || !(to instanceof Date)) throw new Error("Invalid date");
-    const fromDate = moment(from.toISOString());
-    const toDate = moment(to);
+  /**
+   * Get age in given formate
+   * @param dob date of birth
+   * @param format unit of age i.g. years, months, weeks, days, hours etc
+   */
 
-    const years = toDate.diff(fromDate, "year");
-    fromDate.add(years, "years");
-
-    const months = toDate.diff(fromDate, "months");
-
-    fromDate.add(months, "months");
-
-    const days = toDate.diff(fromDate, "days");
-
-    return {
-      years: years,
-      months: months,
-      days: days,
-    };
+  static getAgeIn(dob: Date, format: UnitOfAge): number {
+    if (!(dob instanceof Date)) throw new Error("Invalid date");
+    if (moment(dob.toISOString()).isAfter(moment())) throw new Error("Future date not allowed");
+    const dateCal = new DateCalculator();
+    return dateCal.dateDifferenceIn(dob, new Date(), format);
   }
 }

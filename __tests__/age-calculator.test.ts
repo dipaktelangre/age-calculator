@@ -20,3 +20,8 @@ test("future dob should throw expected error", () => {
     AgeCalculator.getAge(new Date("12-29-2050"));
   }).toThrowError(Error("Future date not allowed"));
 });
+
+test("should get age in years", () => {
+  const ageInYear = AgeCalculator.getAgeIn(new Date("01-01-2010"), "years");
+  expect(ageInYear).toBe(10);
+});
